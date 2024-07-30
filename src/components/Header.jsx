@@ -1,9 +1,7 @@
 export function Header({ query, setQuery, searchMovies, inputRef }) {
   return (
     <header>
-      <div className="logo_wrap">
-        <h1>J Movies🍿</h1>
-      </div>
+      <span className="logo_wrap">J Movies🍿</span>
       <form className="search_wrap" onSubmit={searchMovies}>
         <input
           value={query}

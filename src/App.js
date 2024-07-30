@@ -6,23 +6,21 @@ import { MovieCard } from "./components/MovieCard";
 function App() {
   const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
-  const [showContent, setShowContent] = useState(true);
 
   useEffect(() => {
     inputRef.current.focus();
-    setShowContent(false);
   }, []);
 
   const inputRef = useRef(null);
 
   const searchMovies = async (e) => {
     e.preventDefault();
-    setShowContent(true);
     const url = `https://api.themoviedb.org/3/search/movie?api_key=c65484d1bf6f0999ef34559d7f5865df&language=en-US&query=${query}&page=1&include_adult=false`;
 
     try {
       const res = await fetch(url);
       const data = await res.json();
+
       setMovies(data.results);
     } catch (err) {
       console.error(err);
@@ -37,7 +35,7 @@ function App() {
         setQuery={setQuery}
         searchMovies={searchMovies}
       />
-      {showContent && (
+      {movies.length !== 0 && (
         <div className="main">
           {movies
             .filter((movie) => movie.poster_path)
