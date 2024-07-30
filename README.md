@@ -1,70 +1,88 @@
-# Getting Started with Create React App
+````markdown
+# Movie App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple movie search app built with React and vanilla CSS, using the [The Movie Database (TMDb)](https://www.themoviedb.org) API.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Search movies by title
+- View movie details: release date, rating, and overview
+- Display movie posters
 
-### `npm start`
+## Technologies
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **React**
+- **Vanilla CSS**
+- **TMDb API**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Setup
 
-### `npm test`
+1. **Clone the repo**:
+   ```bash
+   git clone https://github.com/yourusername/movie-app.git
+   cd movie-app
+   ```
+````
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. **Install dependencies**:
 
-### `npm run build`
+   ```bash
+   npm install
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. **Add TMDb API key**:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   - Create a `.env` file in the root directory:
+     ```bash
+     REACT_APP_TMDB_API_KEY=your_api_key_here
+     ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. **Run the app**:
+   ```bash
+   npm start
+   ```
+   Open `http://localhost:3000` in your browser.
 
-### `npm run eject`
+## API Request Example
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```javascript
+const searchMovies = async (query) => {
+  const url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&query=${query}`;
+  const response = await fetch(url);
+  const data = await response.json();
+  setMovies(data.results);
+};
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Project Structure
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+movie-app/
+├── public/
+│   └── index.html
+├── src/
+│   ├── components/
+│   │   ├── Header.js
+│   │   ├── MovieCard.js
+│   │   ├── MovieList.js
+│   ├── App.js
+│   ├── index.js
+│   ├── App.css
+│   ├── index.css
+├── .env
+├── package.json
+├── README.md
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## License
 
-## Learn More
+This project is licensed under the MIT License.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Acknowledgements
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [TMDb API](https://www.themoviedb.org/documentation/api)
+- [React](https://reactjs.org/)
 
-### Code Splitting
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
