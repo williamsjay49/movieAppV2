@@ -1,38 +1,108 @@
-.App {
+.container {
+  width: 80vw;
+  min-height: 100vh;
+  margin: auto;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+
+  row-gap: 1.8rem;
+}
+
+header {
+  display: flex;
+  align-items: baseline;
+}
+
+.logo_wrap {
+  flex-basis: 15%;
+}
+
+.logo_wrap h1 {
+  text-transform: uppercase;
+  color: #344e41;
+  font-weight: 900;
+  font-size: 2.5rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.search_wrap {
+  flex-basis: 90%;
+
+  display: flex;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.search_wrap input {
+  flex-grow: 1;
+  padding: 1.5rem 2rem;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  font-size: 1.5rem;
+  border: none;
+  outline: none;
+  letter-spacing: 2px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.search_wrap button {
+  flex-basis: 15%;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: #344e41;
+  border: none;
+  color: white;
+  padding: 1.5rem 2rem;
+
+  letter-spacing: 2px;
+
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 3rem;
+
+  background-color: #a3b18a;
+  border-radius: 20px;
+  margin-top: 2rem;
+  padding: 1.5rem 2rem;
+}
+.movie_card {
+  height: 50rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #344e41;
+  color: #dad7cd;
+  border-radius: inherit;
+  overflow-y: hidden;
+  box-shadow: 0 4px 6px rgba(58, 90, 64, 0.3);
 }
 
-.App-link {
-  color: #61dafb;
+figure {
+  width: 100%;
+  height: 50%;
+
+  flex-grow: 1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.movie_card__info {
+  flex-grow: 1;
+  padding: 1.5rem 2rem;
+}
+
+.movie_card__info--tag {
+  display: flex;
+  justify-content: space-between;
+}
+
+footer {
+  text-align: center;
 }
